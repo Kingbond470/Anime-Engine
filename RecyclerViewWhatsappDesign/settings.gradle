@@ -1,0 +1,2 @@
+rootProject.name = "Recycler View - Whatsapp Design"
+include ':app'
