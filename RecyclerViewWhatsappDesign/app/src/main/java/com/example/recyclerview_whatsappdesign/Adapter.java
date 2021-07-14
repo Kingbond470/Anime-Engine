@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> {
+public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private List<ModelClass> userList;
 
@@ -21,13 +21,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> {
 
     @NonNull
     @Override
-    public Adapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_design,parent,false);
-        return new viewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull  Adapter.viewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull  Adapter.ViewHolder holder, int position) {
         int resource=userList.get(position).getIvImage();
         String name=userList.get(position).getTvName();
         String message=userList.get(position).getTvMessage();
@@ -43,13 +43,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> {
         return userList.size();
     }
 
-    public class viewHolder extends RecyclerView.ViewHolder{
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView  ivImage;
         private TextView tvName, tvTime, tvMessage, tvDivider;
 
-        public viewHolder(@NonNull  View itemView) {
-            super(itemView);
 
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
             ivImage=itemView.findViewById(R.id.cvImage);
             tvName=itemView.findViewById(R.id.tvName);
             tvTime=itemView.findViewById(R.id.textTime);
