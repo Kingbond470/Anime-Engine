@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_quiz_question.*
 
@@ -16,6 +17,7 @@ class QuizQuestionActivity : AppCompatActivity(), View.OnClickListener {
     private var mCurrentPosition: Int = 1
     private var mQuestionList: ArrayList<Question>? = null
     private var mSelectedPosition: Int = 0
+    private var mCorrectAnswer:Int=0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,15 +35,23 @@ class QuizQuestionActivity : AppCompatActivity(), View.OnClickListener {
         tvOptionThree.setOnClickListener(this)
         tvOptionFour.setOnClickListener(this)
 
+        btnSubmit.setOnClickListener(this)
+
     }
 
 
     private fun setQuesiton() {
 
-        mCurrentPosition = 1
+       // mCurrentPosition = 1
         val question: Question? = mQuestionList!![mCurrentPosition - 1]
 
         defaultOptionView()
+
+        if(mCurrentPosition==mQuestionList!!.size){
+            btnSubmit.text="Finish"
+        }else{
+            btnSubmit.text="Submit"
+        }
 
         progressBar.progress = mCurrentPosition
         tvProgress.text = "$mCurrentPosition" + "/" + progressBar.max
@@ -89,8 +99,73 @@ class QuizQuestionActivity : AppCompatActivity(), View.OnClickListener {
             }
 
 
+            R.id.btnSubmit -> {
+                if (mSelectedPosition == 0) {
+                    mCurrentPosition++
+
+                    when {
+                        mCurrentPosition <= mQuestionList!!.size -> {
+                            setQuesiton()
+                        }
+                        else -> {
+                            Toast.makeText(
+                                this,
+                                "Successfully Completed the Test",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                } else {
+                    val question = mQuestionList?.get(mCurrentPosition - 1)
+                    if (question!!.correctOption != mSelectedPosition) {
+                        answerView(mSelectedPosition, R.drawable.wrong_border_bg)
+                    }else{
+                        mCorrectAnswer++
+                    }
+                    answerView(question.correctOption, R.drawable.correct_border_bg)
+                    if(mCurrentPosition==mQuestionList!!.size){
+                        btnSubmit.text="Finish"
+                    }else{
+                        btnSubmit.text="Go To Next Question"
+                    }
+                    mSelectedPosition=0
+                }
+
+            }
+
+
         }
 
+    }
+
+
+    private fun answerView(answer: Int, drawableView: Int) {
+        when (answer) {
+            1 -> {
+                tvOptionOne.background = ContextCompat.getDrawable(
+                    this,
+                    drawableView
+                )
+            }
+            2 -> {
+                tvOptionOne.background = ContextCompat.getDrawable(
+                    this,
+                    drawableView
+                )
+            }
+            3 -> {
+                tvOptionOne.background = ContextCompat.getDrawable(
+                    this,
+                    drawableView
+                )
+            }
+            4 -> {
+                tvOptionOne.background = ContextCompat.getDrawable(
+                    this,
+                    drawableView
+                )
+            }
+        }
     }
 
     private fun selectedOptionView(tv: TextView, selectedOptionNum: Int) {
