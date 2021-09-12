@@ -1,5 +1,6 @@
 package com.example.kidsquiz
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
@@ -17,12 +18,18 @@ class QuizQuestionActivity : AppCompatActivity(), View.OnClickListener {
     private var mCurrentPosition: Int = 1
     private var mQuestionList: ArrayList<Question>? = null
     private var mSelectedPosition: Int = 0
-    private var mCorrectAnswer:Int=0
+    private var mCorrectAnswer: Int = 0
+
+
+    private var mUserName: String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_question)
+
+        mUserName = intent.getStringExtra(Constant.USERNAME)
+
 
         // object constant is available everywhere
         mQuestionList = Constant.getQuestions()
@@ -42,15 +49,15 @@ class QuizQuestionActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun setQuesiton() {
 
-       // mCurrentPosition = 1
+        // mCurrentPosition = 1
         val question: Question? = mQuestionList!![mCurrentPosition - 1]
 
         defaultOptionView()
 
-        if(mCurrentPosition==mQuestionList!!.size){
-            btnSubmit.text="Finish"
-        }else{
-            btnSubmit.text="Submit"
+        if (mCurrentPosition == mQuestionList!!.size) {
+            btnSubmit.text = "Finish"
+        } else {
+            btnSubmit.text = "Submit"
         }
 
         progressBar.progress = mCurrentPosition
@@ -108,31 +115,37 @@ class QuizQuestionActivity : AppCompatActivity(), View.OnClickListener {
                             setQuesiton()
                         }
                         else -> {
-                            Toast.makeText(
-                                this,
-                                "Successfully Completed the Test",
-                                Toast.LENGTH_SHORT
-                            ).show()
+//                            Toast.makeText(
+//                                this,
+//                                "Successfully Completed the Test",
+//                                Toast.LENGTH_SHORT
+//                            ).show()
+
+                            val intent = Intent(this, ResultActivity::class.java)
+                            intent.putExtra(Constant.USERNAME, mUserName)
+                            intent.putExtra(Constant.CORRECT_ANSWER, mCorrectAnswer)
+                            intent.putExtra(Constant.TOTAL_QUESTION, mQuestionList!!.size)
+                            startActivity(intent)
+                            finish()
                         }
                     }
                 } else {
                     val question = mQuestionList?.get(mCurrentPosition - 1)
                     if (question!!.correctOption != mSelectedPosition) {
                         answerView(mSelectedPosition, R.drawable.wrong_border_bg)
-                    }else{
+                    } else {
                         mCorrectAnswer++
                     }
                     answerView(question.correctOption, R.drawable.correct_border_bg)
-                    if(mCurrentPosition==mQuestionList!!.size){
-                        btnSubmit.text="Finish"
-                    }else{
-                        btnSubmit.text="Go To Next Question"
+                    if (mCurrentPosition == mQuestionList!!.size) {
+                        btnSubmit.text = "Finish"
+                    } else {
+                        btnSubmit.text = "Go To Next Question"
                     }
-                    mSelectedPosition=0
+                    mSelectedPosition = 0
                 }
 
             }
-
 
         }
 

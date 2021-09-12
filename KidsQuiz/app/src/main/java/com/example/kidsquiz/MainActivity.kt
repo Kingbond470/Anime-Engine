@@ -21,8 +21,10 @@ class MainActivity : AppCompatActivity() {
 
             }else{
                 val intent=Intent(applicationContext,QuizQuestionActivity::class.java)
-                startActivity(intent)
+
                 // to close the current activity
+                intent.putExtra(Constant.USERNAME,etName.text.toString())
+                startActivity(intent)
                 finish()
             }
         }

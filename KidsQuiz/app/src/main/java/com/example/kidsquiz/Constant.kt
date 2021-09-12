@@ -3,6 +3,10 @@ package com.example.kidsquiz
 // to store data of question
 object Constant {
 
+    const val USERNAME:String="userName"
+    const val TOTAL_QUESTION:String="totalQuestion"
+    const val CORRECT_ANSWER:String="correctAnswer"
+
     // contain all the questions
     fun getQuestions(): ArrayList<Question> {
         val questionList = ArrayList<Question>()
@@ -136,6 +140,9 @@ object Constant {
         )
 
         questionList.add(que10)
+
+        // give quiz random each time
+        //Collection.shuffled(questionList)
 
         return questionList
     }
