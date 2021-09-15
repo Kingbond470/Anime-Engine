@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/relative_bg"
+    android:padding="10dp">
+
+    <RelativeLayout
+        android:id="@+id/rlItemLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="50.00"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:fontFamily="@font/roboto"
+            android:text="2021-09-01"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvDescrition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlItemLayout"
+        android:fontFamily="@font/roboto"
+        android:paddingLeft="10dp"
+        android:text="Description"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/ivEdit"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_below="@id/rlItemLayout"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/ivDelete"
+        android:src="@drawable/ic_edit" />
+
+    <ImageView
+        android:id="@+id/ivDelete"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_below="@id/rlItemLayout"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_delete" />
+
+
+    <!--    <View-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="2dp"-->
+    <!--        android:background="@color/purple_700"-->
+    <!--        />-->
+
+</RelativeLayout>

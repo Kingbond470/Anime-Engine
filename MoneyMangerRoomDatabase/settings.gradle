@@ -1,0 +1,2 @@
+rootProject.name = "Money Manger Room Database"
+include ':app'
