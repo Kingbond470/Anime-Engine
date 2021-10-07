@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/kids"
+    android:background="#121212"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -50,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Please enter your name"
+                android:paddingTop="10dp"
                 android:textColor="#7A8089"
                 android:textSize="16sp" />
 
@@ -74,9 +75,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@color/purple_500"
                 android:text="Start"
-                android:textColor="@color/white"
+                android:textColor="#CDDC39"
                 android:textSize="18sp" />
         </LinearLayout>
 

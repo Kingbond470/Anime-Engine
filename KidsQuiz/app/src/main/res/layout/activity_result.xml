@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/kid"
+    android:background="#121212"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="20dp"
@@ -21,10 +21,11 @@
 
     <ImageView
         android:id="@+id/ivTrophy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_marginVertical="50dp"
         android:contentDescription="image"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@drawable/result_profile" />
 
     <TextView
         android:id="@+id/tvCongratsulations"
@@ -32,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Hey, Congrtulations"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold" />
 
@@ -42,7 +43,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:text="Username"
-        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textColor="#FF9800"
         android:textStyle="bold" />
 
     <TextView
@@ -50,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20sp"
         tools:text="Your Score is 9 out of 10" />
 
@@ -59,9 +61,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@color/white"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textColor="#CDDC39"
+        android:text="Finish"
+        android:layout_marginHorizontal="70dp"
+        android:textSize="18sp" />
 
 </LinearLayout>
