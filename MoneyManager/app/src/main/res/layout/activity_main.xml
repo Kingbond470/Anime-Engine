@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
 
     <LinearLayout
@@ -108,30 +108,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/cvBalance"
-        android:text="Transaction"
-        android:textAllCaps="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="15dp"
+        android:text="Transaction"
+        android:textAllCaps="true"
         android:textSize="16sp"
         android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/tvRecyclerViewTitle"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
-        android:id="@+id/recyclerView"
-        />
+        android:layout_marginTop="10dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:layout_margin="10dp"
         android:backgroundTint="@color/red"
         android:src="@drawable/ic_add"
-        app:borderWidth="0dp"
-        />
+        app:borderWidth="0dp" />
 </RelativeLayout>
