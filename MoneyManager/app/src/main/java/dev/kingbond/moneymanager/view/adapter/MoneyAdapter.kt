@@ -7,9 +7,9 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import dev.kingbond.moneymanager.R
-import dev.kingbond.moneymanager.view.model.Money
+import dev.kingbond.moneymanager.data.Money
 
-class MoneyAdapter(private val list: ArrayList<Money>) :
+class MoneyAdapter(private var list: List<Money>) :
     RecyclerView.Adapter<MoneyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoneyViewHolder {
@@ -29,11 +29,16 @@ class MoneyAdapter(private val list: ArrayList<Money>) :
             holder.amount.setTextColor(ContextCompat.getColor(context,R.color.red))
 
         }
-        holder.des.text=data.des
+        holder.des.text=data.description
     }
 
     override fun getItemCount(): Int {
         return list.size
+    }
+
+    fun setData(money: List<Money>){
+        this.list=money
+        notifyDataSetChanged()
     }
 }
 
