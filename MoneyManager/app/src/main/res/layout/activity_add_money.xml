@@ -48,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
-            android:hint="$200"
+            android:hint="Money"
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText

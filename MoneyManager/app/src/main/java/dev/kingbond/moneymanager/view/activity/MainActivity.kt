@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
         setRecyclerView()
         //updateDashboard()
-        fetchAll()
+        //fetchAll()
 
         flAddButton.setOnClickListener {
             val intent = Intent(this, AddMoneyActivity::class.java)
@@ -79,12 +79,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun fetchAll(){
         GlobalScope.launch {
-            db.moneyDao().insertMoney(Money(0,"Ice Cream", -3.0,"Yumy"))
+            //db.moneyDao().insertMoney(Money(0,"Ice Cream", -3.0,"Yumy"))
             list=db.moneyDao().getAll()
             runOnUiThread {
                 updateDashboard()
                 adapter.setData(list)
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fetchAll()
     }
 }
