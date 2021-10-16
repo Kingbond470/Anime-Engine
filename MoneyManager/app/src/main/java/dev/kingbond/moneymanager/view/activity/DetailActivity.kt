@@ -1,8 +1,10 @@
 package dev.kingbond.moneymanager.view.activity
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.core.widget.addTextChangedListener
 import androidx.room.Room
 import dev.kingbond.moneymanager.R
@@ -21,16 +23,26 @@ import kotlinx.coroutines.launch
 
 class DetailActivity : AppCompatActivity() {
 
+    private lateinit var money:Money
+
     private lateinit var db: MoneyDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-        var money = intent.getSerializableExtra("money") as Money
+         money = intent.getSerializableExtra("money") as Money
         etLabelUpdate.setText(money.label)
         etMoneyUpdate.setText(money.amount.toString())
         etDescriptionUpdate.setText(money.description)
+
+        rootView.setOnClickListener {
+            this.window.decorView.clearFocus()
+            // to hide the keyboard
+            val imp=getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            // deal with keyboard
+            imp.hideSoftInputFromWindow(it.windowToken,0)
+        }
 
         etLabelUpdate.addTextChangedListener {
             btnUpdateMoney.visibility = View.VISIBLE
@@ -60,7 +72,7 @@ class DetailActivity : AppCompatActivity() {
             } else if (amount == null) {
                 etMoneyUpdate.error = "Please enter a valid amount"
             } else {
-                val money = Money(0, label, amount, desc)
+                val money = Money(money.id, label, amount, desc)
                 update(money)
             }
         }
