@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/moneyselector"
                 android:drawablePadding="12dp"
-                android:inputType="number"
+                android:inputType="numberDecimal|numberSigned"
                 android:maxLines="1" />
 
         </com.google.android.material.textfield.TextInputLayout>

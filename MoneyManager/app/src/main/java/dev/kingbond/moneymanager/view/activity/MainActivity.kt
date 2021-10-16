@@ -3,8 +3,13 @@ package dev.kingbond.moneymanager.view.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
+import com.google.android.material.snackbar.Snackbar
 import dev.kingbond.moneymanager.R
 import dev.kingbond.moneymanager.view.adapter.MoneyAdapter
 import dev.kingbond.moneymanager.data.Money
@@ -15,7 +20,10 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var deleteMoney: Money
+
     private lateinit var list: List<Money>
+    private lateinit var oldList:List<Money>
     private lateinit var adapter: MoneyAdapter
     private lateinit var layoutManager: LinearLayoutManager
 
@@ -48,6 +56,28 @@ class MainActivity : AppCompatActivity() {
         setRecyclerView()
         //updateDashboard()
         //fetchAll()
+
+        // swipe to remove
+        val itemTouchHelper=object :ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT)
+        {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                deleteMoney(list[viewHolder.adapterPosition])
+            }
+
+        }
+
+
+        // item touch helper
+        val swiperHelper=ItemTouchHelper(itemTouchHelper)
+        swiperHelper.attachToRecyclerView(recyclerView)
 
         flAddButton.setOnClickListener {
             val intent = Intent(this, AddMoneyActivity::class.java)
@@ -86,6 +116,45 @@ class MainActivity : AppCompatActivity() {
                 adapter.setData(list)
             }
         }
+    }
+
+    private fun deleteMoney(money: Money){
+        deleteMoney=money
+        oldList=list
+
+        GlobalScope.launch {
+            db.moneyDao().delete(money)
+            list=list.filter { it.id!=money.id }
+        }
+        runOnUiThread{
+//            updateDashboard()
+//            adapter.setData(list)
+            fetchAll()
+            showSnackBar()
+        }
+    }
+
+    private fun showSnackBar() {
+        val view=coordinator
+        val snackbar=Snackbar.make(view,"Money Deleted !",Snackbar.LENGTH_SHORT)
+        snackbar.setAction("Undo"){
+            undoDelete()
+        }
+            .setActionTextColor(ContextCompat.getColor(this,R.color.red))
+            .setTextColor(ContextCompat.getColor(this,R.color.white))
+            .show()
+    }
+
+    private fun undoDelete() {
+       GlobalScope.launch {
+           db.moneyDao().insertMoney(deleteMoney)
+           list=oldList
+           runOnUiThread {
+               fetchAll()
+//               updateDashboard()
+//               adapter.setData(list)
+           }
+       }
     }
 
     override fun onResume() {
