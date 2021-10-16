@@ -1,4 +1,4 @@
-package dev.kingbond.moneymanager.view
+package dev.kingbond.moneymanager.view.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var list: ArrayList<Money>
     private lateinit var adapter: MoneyAdapter
     private lateinit var layoutManager: LinearLayoutManager
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
