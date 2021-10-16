@@ -1,5 +1,6 @@
 package dev.kingbond.moneymanager.view.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,6 +33,11 @@ class MainActivity : AppCompatActivity() {
 
         setRecyclerView()
         updateDashboard()
+
+        flAddButton.setOnClickListener {
+            val intent=Intent(this,AddMoneyActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setRecyclerView() {
