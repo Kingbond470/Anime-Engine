@@ -1,5 +1,6 @@
 package dev.kingbond.moneymanager.view.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import dev.kingbond.moneymanager.R
 import dev.kingbond.moneymanager.data.Money
+import dev.kingbond.moneymanager.view.activity.DetailActivity
 
 class MoneyAdapter(private var list: List<Money>) :
     RecyclerView.Adapter<MoneyViewHolder>() {
@@ -30,6 +32,13 @@ class MoneyAdapter(private var list: List<Money>) :
 
         }
         holder.des.text=data.description
+
+        holder.itemView.setOnClickListener {
+            val intent= Intent(context,DetailActivity::class.java)
+            intent.putExtra("money",data)
+            // this is not activity , so use context
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {

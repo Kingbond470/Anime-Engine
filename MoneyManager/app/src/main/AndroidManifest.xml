@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".view.activity.DetailActivity"
+            android:exported="true" />
+        <activity
             android:name=".view.activity.MainActivity"
             android:exported="true">
             <intent-filter>
@@ -20,9 +23,7 @@
         </activity>
         <activity
             android:name=".view.activity.AddMoneyActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>
