@@ -1,4 +1,4 @@
-package dev.kingbond.searchimage
+package dev.kingbond.searchimage.data
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

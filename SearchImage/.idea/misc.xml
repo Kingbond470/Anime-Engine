@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/Anime/SearchImage/app/src/main/res/drawable/gradient.xml" value="0.1" />
+        <entry key="..\:/Android/Anime/SearchImage/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Android/Anime/SearchImage/app/src/main/res/layout/fragment_gallery.xml" value="0.33" />
+        <entry key="..\:/Android/Anime/SearchImage/app/src/main/res/layout/item_layout.xml" value="0.13402061855670103" />
         <entry key="..\:/Android/SearchImage/app/src/main/res/drawable/ic_error.xml" value="0.12083333333333333" />
         <entry key="..\:/Android/SearchImage/app/src/main/res/drawable/ic_search.xml" value="0.12083333333333333" />
         <entry key="..\:/Android/SearchImage/app/src/main/res/drawable/ic_user.xml" value="0.12083333333333333" />
