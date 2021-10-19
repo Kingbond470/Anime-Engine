@@ -13,6 +13,7 @@ interface UnsplashApi {
         const val CLIENT_ID=BuildConfig.UNSPLASH_ACCESS_KEY
     }
 
+    // accept version will specifically use v1 and authorization client will
     @Headers("Accept-Version:v1","Authorization: Client-ID $CLIENT_ID")
     @GET("search/photos")
     suspend fun searchPhotos(
