@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.room.Room
 import dev.kingbond.moneymanager.R
@@ -24,12 +25,12 @@ import kotlinx.coroutines.launch
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var money:Money
-
     private lateinit var db: MoneyDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.transparent)
 
          money = intent.getSerializableExtra("money") as Money
         etLabelUpdate.setText(money.label)
@@ -61,14 +62,13 @@ class DetailActivity : AppCompatActivity() {
         etDescriptionUpdate.addTextChangedListener {
             btnUpdateMoney.visibility = View.VISIBLE
         }
-
         btnUpdateMoney.setOnClickListener {
             val label = etLabelUpdate.text.toString()
             val amount = etMoneyUpdate.text.toString().toDoubleOrNull()
             val desc = etDescriptionUpdate.text.toString()
 
             if (label.isEmpty()) {
-                etLabelUpdate.error = "Please enter a valid label"
+                etLabelUpdate.error = "Please enter a valid Label"
             } else if (amount == null) {
                 etMoneyUpdate.error = "Please enter a valid amount"
             } else {

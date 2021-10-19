@@ -24,10 +24,10 @@ class MoneyAdapter(private var list: List<Money>) :
         val context=holder.amount.context
 
         if(data.amount>=0){
-            holder.amount.text="+ $%.2f".format(data.amount)
+            holder.amount.text="+ ₹%.2f".format(data.amount)
             holder.amount.setTextColor(ContextCompat.getColor(context,R.color.greeen))
         }else{
-            holder.amount.text="- $%.2f".format(Math.abs(data.amount))
+            holder.amount.text="- ₹%.2f".format(Math.abs(data.amount))
             holder.amount.setTextColor(ContextCompat.getColor(context,R.color.red))
 
         }

@@ -35,6 +35,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        window.statusBarColor = ContextCompat.getColor(this, R.color.textMain)
+
         db = Room.databaseBuilder(this, MoneyDatabase::class.java, "money")
             .build()
 
@@ -101,9 +103,9 @@ class MainActivity : AppCompatActivity() {
 
         val expense = totalAmount - income
 
-        tvBalance.text = "$%.2f".format(totalAmount)
-        tvIncome.text = "$%.2f".format(income)
-        tvExpense.text = "$%.2f".format(expense)
+        tvBalance.text = "₹ %.2f".format(totalAmount)
+        tvIncome.text = "₹ %.2f".format(income)
+        tvExpense.text = "₹ %.2f".format(expense)
 
     }
 

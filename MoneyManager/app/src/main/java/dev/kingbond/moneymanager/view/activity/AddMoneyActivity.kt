@@ -3,6 +3,7 @@ package dev.kingbond.moneymanager.view.activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.room.Room
 import dev.kingbond.moneymanager.R
@@ -21,7 +22,7 @@ class AddMoneyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_money)
 
-
+        window.statusBarColor = ContextCompat.getColor(this, R.color.transparent)
 
         etLabel.addTextChangedListener {
             if (it?.count()!! > 0) {

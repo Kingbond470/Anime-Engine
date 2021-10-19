@@ -2,9 +2,11 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/coordinator"
+    android:background="#121212"
+    android:padding="10dp"
     tools:context=".view.activity.MainActivity">
 
     <RelativeLayout
@@ -24,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:text="Total Balance"
                 android:textAllCaps="true"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -32,6 +35,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$1000"
+                android:maxLines="1"
+                android:textColor="@color/white"
                 android:textSize="32sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -65,6 +70,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="$500"
+                        android:maxLines="1"
                         android:textColor="@color/greeen"
                         android:textSize="26sp"
                         android:textStyle="bold" />
@@ -73,6 +79,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Income"
+                        android:maxLines="1"
                         android:textAllCaps="true"
                         android:textSize="14sp" />
 
@@ -90,6 +97,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="$500"
+                        android:maxLines="1"
                         android:textColor="@color/red"
                         android:textSize="26sp"
                         android:textStyle="bold" />
@@ -98,6 +106,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Expense"
+                        android:maxLines="1"
                         android:textAllCaps="true"
                         android:textSize="14sp" />
 
@@ -116,7 +125,8 @@
             android:layout_marginTop="15dp"
             android:text="Transaction"
             android:textAllCaps="true"
-            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
