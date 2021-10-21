@@ -11,8 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
+        android:paddingHorizontal="4dp"
         android:layout_weight="1"
         android:text="Anime Watching"
+        android:maxLines="1"
+        android:textColor="@color/white"
         android:textSize="20sp" />
 
     <TextView
@@ -20,7 +23,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
-        android:text="$200"
+        android:text="₹ 200"
+        android:maxLines="1"
+        android:textColor="@color/white"
         android:textSize="20sp" />
 
 

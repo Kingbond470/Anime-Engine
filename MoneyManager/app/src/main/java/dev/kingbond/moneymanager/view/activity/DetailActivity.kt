@@ -3,10 +3,13 @@ package dev.kingbond.moneymanager.view.activity
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputFilter
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doAfterTextChanged
 import androidx.room.Room
 import dev.kingbond.moneymanager.R
 import dev.kingbond.moneymanager.data.Money
@@ -45,6 +48,14 @@ class DetailActivity : AppCompatActivity() {
             imp.hideSoftInputFromWindow(it.windowToken,0)
         }
 
+        etMoneyUpdate.doAfterTextChanged {
+
+            if(etMoneyUpdate.text.toString().trim().length==10){
+                etMoneyUpdate.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(10))
+                etMoneyUpdate.error="Max limit reached"
+            }
+        }
+
         etLabelUpdate.addTextChangedListener {
             btnUpdateMoney.visibility = View.VISIBLE
             if (it?.count()!! > 0) {
@@ -75,6 +86,7 @@ class DetailActivity : AppCompatActivity() {
                 val money = Money(money.id, label, amount, desc)
                 update(money)
             }
+            Toast.makeText(this,"Updated Successfully", Toast.LENGTH_SHORT).show()
         }
 
         btnCloseUpdate.setOnClickListener {

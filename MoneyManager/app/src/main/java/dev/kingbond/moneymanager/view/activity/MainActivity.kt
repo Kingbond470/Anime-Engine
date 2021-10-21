@@ -17,13 +17,14 @@ import dev.kingbond.moneymanager.data.MoneyDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlin.math.abs
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var deleteMoney: Money
 
     private lateinit var list: List<Money>
-    private lateinit var oldList:List<Money>
+    private lateinit var oldList: List<Money>
     private lateinit var adapter: MoneyAdapter
     private lateinit var layoutManager: LinearLayoutManager
 
@@ -60,8 +61,7 @@ class MainActivity : AppCompatActivity() {
         //fetchAll()
 
         // swipe to remove
-        val itemTouchHelper=object :ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT)
-        {
+        val itemTouchHelper = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
             override fun onMove(
                 recyclerView: RecyclerView,
                 viewHolder: RecyclerView.ViewHolder,
@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
 
 
         // item touch helper
-        val swiperHelper=ItemTouchHelper(itemTouchHelper)
+        val swiperHelper = ItemTouchHelper(itemTouchHelper)
         swiperHelper.attachToRecyclerView(recyclerView)
 
         flAddButton.setOnClickListener {
@@ -103,16 +103,54 @@ class MainActivity : AppCompatActivity() {
 
         val expense = totalAmount - income
 
-        tvBalance.text = "₹ %.2f".format(totalAmount)
-        tvIncome.text = "₹ %.2f".format(income)
-        tvExpense.text = "₹ %.2f".format(expense)
+        var totAmt = totalAmount
+        when {
+            abs(totAmt) > 1000000 -> {
+                totAmt = totalAmount / 1000000
+                tvBalance.text = "₹ %.2f M".format(totAmt)
+            }
+            abs(totalAmount) > 1000 -> {
+                totAmt = totalAmount / 1000
+                tvBalance.text = "₹ %.2f K".format(totAmt)
+            }
+            else -> tvBalance.text = "₹ %.2f".format(totalAmount)
+        }
+
+        var totIncome = income
+        when {
+            totIncome > 1000000 -> {
+                totIncome = income / 1000000
+                tvIncome.text = "₹ %.2f M".format(totIncome)
+            }
+            totIncome > 1000 -> {
+                totIncome = income / 1000
+                tvIncome.text = "₹ %.2f K".format(totIncome)
+            }
+            else -> tvIncome.text = "₹ %.2f".format(totIncome)
+        }
+
+        var totExpense = expense
+        when {
+            abs(totExpense) > 1000000 -> {
+                totExpense = expense / 1000000
+                tvExpense.text = "₹ %.2f M".format(totExpense)
+            }
+            abs(totExpense) > 1000 -> {
+                totExpense = expense / 1000
+                tvExpense.text = "₹ %.2f K".format(totExpense)
+            }
+            else -> tvExpense.text = "₹ %.2f".format(totExpense)
+        }
+
+//        tvIncome.text = "₹ %.2f".format(income)
+//        tvExpense.text = "₹ %.2f".format(expense)
 
     }
 
-    private fun fetchAll(){
+    private fun fetchAll() {
         GlobalScope.launch {
             //db.moneyDao().insertMoney(Money(0,"Ice Cream", -3.0,"Yumy"))
-            list=db.moneyDao().getAll()
+            list = db.moneyDao().getAll()
             runOnUiThread {
                 updateDashboard()
                 adapter.setData(list)
@@ -120,15 +158,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun deleteMoney(money: Money){
-        deleteMoney=money
-        oldList=list
+    private fun deleteMoney(money: Money) {
+        deleteMoney = money
+        oldList = list
 
         GlobalScope.launch {
             db.moneyDao().delete(money)
-            list=list.filter { it.id!=money.id }
+            list = list.filter { it.id != money.id }
         }
-        runOnUiThread{
+        runOnUiThread {
 //            updateDashboard()
 //            adapter.setData(list)
             fetchAll()
@@ -137,26 +175,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showSnackBar() {
-        val view=coordinator
-        val snackbar=Snackbar.make(view,"Money Deleted !",Snackbar.LENGTH_SHORT)
-        snackbar.setAction("Undo"){
+        val view = coordinator
+        val snackbar = Snackbar.make(view, "Money Deleted !", Snackbar.LENGTH_SHORT)
+        snackbar.setAction("Undo") {
             undoDelete()
         }
-            .setActionTextColor(ContextCompat.getColor(this,R.color.red))
-            .setTextColor(ContextCompat.getColor(this,R.color.white))
+            .setActionTextColor(ContextCompat.getColor(this, R.color.red))
+            .setTextColor(ContextCompat.getColor(this, R.color.white))
             .show()
     }
 
     private fun undoDelete() {
-       GlobalScope.launch {
-           db.moneyDao().insertMoney(deleteMoney)
-           list=oldList
-           runOnUiThread {
-               fetchAll()
+        GlobalScope.launch {
+            db.moneyDao().insertMoney(deleteMoney)
+            list = oldList
+            runOnUiThread {
+                fetchAll()
 //               updateDashboard()
 //               adapter.setData(list)
-           }
-       }
+            }
+        }
     }
 
     override fun onResume() {
