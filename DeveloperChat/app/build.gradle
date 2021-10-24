@@ -51,5 +51,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // stream chat android sdk
-    implementation "io.getstream:stream-chat-android-ui-components:4.13.0"
+    implementation "io.getstream:stream-chat-android-ui-components:4.20.0"
 }

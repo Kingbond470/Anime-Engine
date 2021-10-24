@@ -35,7 +35,7 @@
             app:popExitAnim="@anim/to_right" />
         <argument
             android:name="chatUser"
-            app:argType="com.example.streamchatdemo.model.ChatUser" />
+            app:argType="dev.kingbond.developerchat.model.ChatUser" />
         <action
             android:id="@+id/action_channelFragment_to_usersFragment"
             app:destination="@id/usersFragment"
