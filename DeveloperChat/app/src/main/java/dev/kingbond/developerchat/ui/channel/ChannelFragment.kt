@@ -37,7 +37,7 @@ class ChannelFragment : Fragment() {
     private val client = ChatClient.instance()
     private lateinit var user: User
 
-    // sjxdjdjc
+
     @SuppressLint("WrongConstant")
     override fun onCreateView(
         inflater: LayoutInflater,
