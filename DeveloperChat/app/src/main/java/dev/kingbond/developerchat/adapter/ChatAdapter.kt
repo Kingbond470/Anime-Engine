@@ -48,10 +48,12 @@ class UsersAdapter : RecyclerView.Adapter<UsersAdapter.MyViewHolder>() {
         notifyDataSetChanged()
     }
 
+    // to convert to proper data format a->am
     private fun convertDate(milliseconds: Long): String {
         return DateFormat.format("dd/MM/yyyy hh:mm a", milliseconds).toString()
     }
 
+    // select user and create the channel to chat
     private fun createNewChannel(selectedUser: String, holder: MyViewHolder) {
         client.createChannel(
             channelType = "messaging",

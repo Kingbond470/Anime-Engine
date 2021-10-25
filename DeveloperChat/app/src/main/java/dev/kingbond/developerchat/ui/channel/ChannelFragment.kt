@@ -17,8 +17,10 @@ import androidx.navigation.fragment.navArgs
 import dev.kingbond.developerchat.R
 import dev.kingbond.developerchat.databinding.FragmentChannelBinding
 import io.getstream.chat.android.client.ChatClient
+import io.getstream.chat.android.client.models.Channel
 import io.getstream.chat.android.client.models.Filters
 import io.getstream.chat.android.client.models.User
+import io.getstream.chat.android.livedata.ChatDomain
 import io.getstream.chat.android.ui.avatar.AvatarView
 import io.getstream.chat.android.ui.channel.list.header.viewmodel.ChannelListHeaderViewModel
 import io.getstream.chat.android.ui.channel.list.header.viewmodel.bindView
@@ -47,6 +49,17 @@ class ChannelFragment : Fragment() {
         setUpChannel()
         setUpDrawer()
 
+        // to delete the channel
+        binding.channelsView.setChannelDeleteClickListener { channel ->
+            deleteChannel(channel)
+        }
+
+        //action button - navigation to user
+        binding.channelListHeaderView.setOnActionButtonClickListener{
+            findNavController().navigate(R.id.action_channelFragment_to_usersFragment)
+        }
+
+        // clicking on avatar to open drawer
         binding.channelListHeaderView.setOnUserAvatarClickListener {
             binding.drawerLayout.openDrawer(Gravity.START)
         }
@@ -71,6 +84,16 @@ class ChannelFragment : Fragment() {
         headerId.text = currentUser.id
         val headerName = headerView.findViewById<TextView>(R.id.name_textView)
         headerName.text = currentUser.name
+    }
+
+    private fun deleteChannel(channel: Channel) {
+        ChatDomain.instance().deleteChannel(channel.cid).enqueue { result ->
+            if (result.isSuccess) {
+                showToast("Channel: ${channel.name} removed!")
+            } else {
+                Log.e("ChannelFragment", result.error().message.toString())
+            }
+        }
     }
 
     private fun logout() {
