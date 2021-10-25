@@ -37,6 +37,7 @@ class ChannelFragment : Fragment() {
     private val client = ChatClient.instance()
     private lateinit var user: User
 
+    // sjxdjdjc
     @SuppressLint("WrongConstant")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,6 +53,13 @@ class ChannelFragment : Fragment() {
         // to delete the channel
         binding.channelsView.setChannelDeleteClickListener { channel ->
             deleteChannel(channel)
+        }
+
+        // to go to chat fragment
+        binding.channelsView.setChannelItemClickListener{
+            channel->
+            val action=ChannelFragmentDirections.actionChannelFragmentToChatFragment(channel.cid)
+            findNavController().navigate(action)
         }
 
         //action button - navigation to user
