@@ -39,6 +39,7 @@
                 android:layout_toStartOf="@+id/txtShowCategory"
                 android:ellipsize="end"
                 android:maxLines="1"
+                android:fontFamily="@font/roboto"
                 android:textColor="@color/litherGray"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -55,6 +56,7 @@
                 android:layout_marginEnd="8dp"
                 android:ellipsize="end"
                 android:maxLines="3"
+                android:fontFamily="@font/roboto"
                 android:textColor="@color/litherGray"
                 android:textSize="16sp"
                 tools:text="Task Description" />
@@ -67,6 +69,7 @@
                 android:ellipsize="end"
                 android:maxWidth="80dp"
                 android:maxLines="1"
+                android:fontFamily="@font/roboto"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="12sp"
                 tools:text="Category" />
@@ -84,6 +87,7 @@
                 android:textColor="@color/addColor"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                android:fontFamily="@font/roboto"
                 tools:text="Priority" />
 
             <TextView
@@ -95,6 +99,7 @@
                 android:layout_marginTop="16dp"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="12sp"
+                android:fontFamily="@font/roboto"
                 android:visibility="visible"
                 tools:text="28-10-2021" />
 
@@ -107,6 +112,7 @@
                 android:layout_marginTop="16dp"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="12sp"
+                android:fontFamily="@font/roboto"
                 android:visibility="visible"
                 tools:text="19:10 PM" />
 

@@ -18,20 +18,15 @@
     <color name="green">#388E3C</color>
     <color name="red">#D32F2F</color>
     <color name="addColor">#E91E63</color>
-
     <color name="litherGray">#676767</color>
 
     <array name="random_color">
         <item name="softBlue" type="color">#40A7E9</item>
         <item name="bluishWhite" type="color">#C3E0E5</item>
         <item name="turquoise" type="color">#1AC8DB</item>
-        <item name="gray" type="color">#a1a1a1</item>
         <item name="teal" type="color">#0292B7</item>
         <item name="aero" type="color">#7CB9E8</item>
-        <item name="superiorBlue" type="color">#72A0C1</item>
         <item name="azure" type="color">#007FFF</item>
         <item name="boeingBlue" type="color">#0039a6</item>
-        <item name="deftBlue" type="color">#1F305E</item>
-        <item name="bluishGrey" type="color">#78909c</item>
     </array>
 </resources>

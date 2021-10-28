@@ -10,13 +10,16 @@
         <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/ic_baseline_playlist_add_24.xml" value="0.2203125" />
         <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2203125" />
         <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/ic_email.xml" value="0.2203125" />
+        <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/ic_icon.xml" value="0.2203125" />
         <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/ic_instagram.xml" value="0.2203125" />
         <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/ic_linkedin_circle.xml" value="0.2203125" />
         <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/ic_tools.xml" value="0.2203125" />
         <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/spinner_border.xml" value="0.2203125" />
         <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/layout/activity_todo_task.xml" value="0.22" />
         <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/layout/todo_layout.xml" value="0.22" />
         <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/menu/profile_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2203125" />
       </map>
     </option>
   </component>
