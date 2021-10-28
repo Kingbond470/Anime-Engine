@@ -3,7 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/ic_baseline_access_time_24.xml" value="0.2203125" />
+        <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2203125" />
+        <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.2203125" />
+        <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/ic_baseline_date_range_24.xml" value="0.2203125" />
+        <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/ic_baseline_playlist_add_24.xml" value="0.2203125" />
+        <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2203125" />
+        <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/ic_email.xml" value="0.2203125" />
+        <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/ic_instagram.xml" value="0.2203125" />
+        <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/ic_linkedin_circle.xml" value="0.2203125" />
+        <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/ic_tools.xml" value="0.2203125" />
+        <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/drawable/spinner_border.xml" value="0.2203125" />
+        <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/layout/todo_layout.xml" value="0.22" />
+        <entry key="..\:/Android/Anime/YourTodoList/app/src/main/res/menu/profile_menu.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

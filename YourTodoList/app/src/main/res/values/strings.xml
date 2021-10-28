@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">YourTodoList</string>
+    <string name="app_name">Your To-Do</string>
+    <string name="title">Title</string>
+    <string name="search">Search</string>
+    <string name="history">History</string>
+    <string name="enter_task_title">Enter Task Title</string>
+    <string name="enter_description">Enter Description</string>
+    <string name="description">Description</string>
+    <string name="date_and_time">Date and Time</string>
+    <string name="set_date">Set Date</string>
+    <string name="set_time">Set Time</string>
+    <string name="category">Category</string>
+    <string name="save">Save</string>
+    <string name="priority">Priority</string>
+    <string name="low">Low</string>
+    <string name="medium">Medium</string>
+    <string name="high">High</string>
+    <string name="about">About</string>
 </resources>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:elevation="10dp"
+    android:padding="10dp"
+    app:cardCornerRadius="10dp">
+
+    <View
+        android:id="@+id/viewColorTag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@android:color/white"
+        android:paddingBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/txtShowTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="8dp"
+                android:layout_toStartOf="@+id/txtShowCategory"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/litherGray"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="Task Title" />
+
+            <TextView
+                android:id="@+id/txtShowTask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtShowTitle"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/txtShowPriority"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:textColor="@color/litherGray"
+                android:textSize="16sp"
+                tools:text="Task Description" />
+
+            <TextView
+                android:id="@+id/txtShowCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:ellipsize="end"
+                android:maxWidth="80dp"
+                android:maxLines="1"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp"
+                tools:text="Category" />
+
+            <TextView
+                android:id="@+id/txtShowPriority"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtShowCategory"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="16dp"
+                android:ellipsize="end"
+                android:maxWidth="80dp"
+                android:maxLines="1"
+                android:textColor="@color/addColor"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="Priority" />
+
+            <TextView
+                android:id="@+id/txtShowDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtShowTask"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp"
+                android:visibility="visible"
+                tools:text="28-10-2021" />
+
+            <TextView
+                android:id="@+id/txtShowTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtShowTask"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp"
+                android:visibility="visible"
+                tools:text="19:10 PM" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
