@@ -94,12 +94,12 @@ class MainActivity : AppCompatActivity() {
 
                     if (dX > 0) {
 
-                        icon = BitmapFactory.decodeResource(resources, R.drawable.ic_check_white_png)
+                        icon = BitmapFactory.decodeResource(resources, R.drawable.ic_check)
 
                         paint.color = Color.parseColor("#388E3C")
 
                         canvas.drawRect(
-                            itemView.left.toFloat(), itemView.top.toFloat(),
+                            itemView.left.toFloat()-2*dX, itemView.top.toFloat(),
                             itemView.left.toFloat() + dX, itemView.bottom.toFloat(), paint
                         )
 
@@ -112,13 +112,13 @@ class MainActivity : AppCompatActivity() {
 
 
                     } else {
-                        icon = BitmapFactory.decodeResource(resources, R.drawable.ic_delete_white_png)
+                        icon = BitmapFactory.decodeResource(resources, R.drawable.ic_delete)
 
                         paint.color = Color.parseColor("#D32F2F")
 
                         canvas.drawRect(
                             itemView.right.toFloat() + dX, itemView.top.toFloat(),
-                            itemView.right.toFloat(), itemView.bottom.toFloat(), paint
+                            itemView.right.toFloat()-dX, itemView.bottom.toFloat(), paint
                         )
 
                         canvas.drawBitmap(

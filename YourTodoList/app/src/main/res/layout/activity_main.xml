@@ -32,7 +32,8 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
-        android:backgroundTint="@color/addColor"
+        android:backgroundTint="#45E14B"
+        android:tint="#45E14B"
         android:onClick="openNewTask"
         android:src="@drawable/ic_baseline_add_24" />
 </RelativeLayout>

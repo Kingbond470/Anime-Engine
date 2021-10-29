@@ -15,7 +15,8 @@
             android:id="@+id/newTaskToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="@color/addColor"
+            android:alpha="0.7"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:titleTextColor="@color/white"
             tools:title="New Task" />
