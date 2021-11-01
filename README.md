@@ -9,4 +9,6 @@
 [Studnet Task Manger](https://play.google.com/store/apps/details?id=dev.kingbond.yourtodolist)
 
 
+## Developer Chat
 
+[Developer Chat](https://play.google.com/store/apps/details?id=dev.kingbond.developerchat)
